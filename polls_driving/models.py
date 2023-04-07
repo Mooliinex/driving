@@ -33,7 +33,7 @@ class Users(AbstractBaseUser):
     firstname = models.CharField(max_length=20)
     email = models.EmailField(max_length=30, unique=True)
     password = models.CharField(max_length=35)
-    role = models.ForeignKey(RoleUser,related_name="right", on_delete=models.CASCADE)
+    role = models.ForeignKey(RoleUser, related_name="right", on_delete=models.CASCADE)
 
     USERNAME_FIELD = 'mail'
     REQUIRED_FIELDS = []
@@ -74,4 +74,3 @@ class PlanningHours(models.Model):
 class PlanningUsers(models.Model):
     hour = models.ForeignKey(PlanningHours, on_delete=models.CASCADE)
     student = models.ForeignKey(Users, on_delete=models.CASCADE)
-
